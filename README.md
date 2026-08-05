@@ -1,223 +1,98 @@
 # Louisville Roadway Risk
 Roadway Risk for Pedestrians and Cyclists in Louisville, KY (2018 - 2022)
 
+## Project Overview
 > A brief analysis of how the most dangerous roadways in Louisville intersect with bikeways and pedestrian-heavy infrastructure like crosswalks and bus stops. 
 
-### Prerequisites
-- python >= 3.13.5
+## Prerequisites
+This project includes a Jupyter Notebook for analyzing the Louisville roadway safety data sets. Directions included here are for running the notebook in **Visual Studio Code** (available from https://code.visualstudio.com/download) or **VSCodium** (available from https://vscodium.com/). The notebook may also be opened in **Jupyter Notebook Interface** (available from https://docs.jupyter.org/en/latest/install.html), but this has not been tested.
 
-Python Libraries
-- pandas >= 3.0.5
-- geopandas >= 1.1.4
-- geopy >= 2.5.0
-- matplotlib >= 3.11.1
-- shapely >= 2.1.2
+## Project Structure
+```
+.
+├── data
+│   └── Ky_County_Polygons_WM.shp
+├── LICENSE
+├── Louisville_Roadway_Risk_Analysis.ipynb
+├── README.md
+└── requirements.txt
+```
 
-
-### Setup
+## How to Run This Project
+### 1. Clone this repository
 
 ```bash
-# Clone this repository
 git clone https://github.com/JishGorft/Roadway_Risk.git
+```
+
+### 2. Create a virtual environment
+
+```bash
 cd Roadway_Risk
-
-# Install dependencies
-npm install
-
-# Copy environment variables
-cp .env.example .env
-
-# Start development server
-npm run dev
+python -m venv .venv
 ```
 
-The application will be available at `http://localhost:3000`
+### 3. Activate the virtual environment
+Activate the virtual environment (varies by operating system):
 
-## 📖 Usage
-
-### Basic Example
-
-```javascript
-import { ProjectAPI } from 'project-name';
-
-const api = new ProjectAPI({
-  apiKey: 'your-api-key',
-  environment: 'production'
-});
-
-// Fetch data
-const data = await api.getData();
-console.log(data);
+#### **Linux and macOS:**
+```bash
+source .venv/bin/activate
 ```
 
-### Advanced Configuration
-
-```javascript
-const config = {
-  api: {
-    baseURL: 'https://api.example.com',
-    timeout: 5000,
-    retries: 3
-  },
-  features: {
-    analytics: true,
-    caching: true,
-    compression: true
-  }
-};
-
-const api = new ProjectAPI(config);
+#### **Windows:**
+```bash
+.venv\Scripts\activate.bat
 ```
-
-## 🏗️ Architecture
-
-```
-src/
-├── components/          # Reusable UI components
-├── pages/              # Application pages
-├── hooks/              # Custom React hooks
-├── utils/              # Utility functions
-├── services/           # API services
-├── types/              # TypeScript definitions
-└── styles/             # Global styles
-```
-
-## 🧪 Testing
+### 4. Install Dependencies
+Once the virtual environment is activated, install the required packages:
 
 ```bash
-# Run unit tests
-npm test
-
-# Run tests with coverage
-npm run test:coverage
-
-# Run integration tests
-npm run test:integration
-
-# Run e2e tests
-npm run test:e2e
+pip install -r requirements.txt
 ```
 
-## 📦 Build & Deploy
+### 5. Open the Jupyter Notebook
+1. Open the cloned *Roadway_Risk* folder in **VSCodium**.
+2. From the Explorer panel (left-hand side of the window), click the file `Louisville_Roadway_Risk_Analysis.ipynb` to open it.
+3. Click **Select Kernel** in the upper-right corner of the notebook.
+5. Select the Python virtual environment (venv) you created in Step 2. **VSCodium** will *likely* recommend this as the preferred environment.
+6. Click **Run All** near the top of the notebook window.
+
+> **Please note:** You may be prompted to install Python and/or Jupyter extensions by VSCodium, if you do not already have them installed. If so prompted, please install the extensions. In Visual Studio Code, the publisher will be Microsoft. In VSCodium, the publisher is *ms-toolsai* for Jupyter and *ms-python* for Python.
+
+### Deactivation
+Don't forget! When you are done running the project, you should deactivate the Python virtual environment from the terminal:
 
 ```bash
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-
-# Deploy to Vercel
-npm run deploy:vercel
-
-# Deploy to Netlify
-npm run deploy:netlify
+deactivate
 ```
 
-## 🔧 Configuration
+## Key Python Libraries Used
+- **pandas**, for creating and handling dataframes
+- **geopandas**, for reading data sets in GeoJSON files
+- **geopy**, for converting shape lengths calculated by default in *degrees* to *miles*
+- **matplotlib**, for plotting visualizations, custom visualization labels, and to access to colormaps used in visualizations
+- **shapely**, for geopandas geometry management assistance
 
-### Environment Variables
+## Key Analytical Questions
+- How much of Louisville's non-automotive transportation infrastructre falls within "high injury network" [as defined by Vision Zero Louisville](data/Vision_Zer0_Louisville-High_Injury_Network_Methodology_Report.pdf)? 
+- Which infrastructure locations, including bikeways, crosswalks, and bus stops, are at highest risk of experiencing a vehicular crash?
+- What safety measures are already in place? Can additional no- or low-cost measures (i.e. reducing speed limit) be implemented?
 
-| Variable | Description | Default | Required |
-|----------|-------------|---------|----------|
-| `API_URL` | Backend API URL | `http://localhost:3001` | ✅ |
-| `DATABASE_URL` | Database connection | - | ✅ |
-| `JWT_SECRET` | JWT signing secret | - | ✅ |
-| `REDIS_URL` | Redis cache URL | - | ❌ |
-| `SENTRY_DSN` | Error tracking | - | ❌ |
+## Methodology
+The analysis workflow includes:
+- Data retrieval of data from [Lousiville Open Data](https://data.louisvilleky.gov/)
+- Standardization of geographic data, such as translation of all distance units into miles
+- Exploratory Data Analysis (EDA) using Python (pandas, matplotlib, geopandas)
 
-### Feature Flags
+## Key Findings & Insights
+- 
 
-```javascript
-// config/features.js
-export const features = {
-  analytics: process.env.ENABLE_ANALYTICS === 'true',
-  experiments: process.env.ENABLE_EXPERIMENTS === 'true',
-  darkMode: process.env.ENABLE_DARK_MODE === 'true'
-};
-```
+## AI Usage
+The author of this project prefers not to rely on so-called AI. As such, no generative AI tools, chatbots, or other LLM technology has been used in building this project.
 
-## 📚 API Reference
+## Author
+Josh Groft
 
-### Core Methods
-
-#### `getData(options?)`
-
-Fetches data from the API.
-
-**Parameters:**
-- `options` (object, optional): Request configuration
-  - `limit` (number): Maximum number of items
-  - `offset` (number): Number of items to skip
-  - `filter` (object): Filtering criteria
-
-**Returns:** Promise<DataResponse>
-
-**Example:**
-```javascript
-const data = await api.getData({
-  limit: 10,
-  offset: 0,
-  filter: { status: 'active' }
-});
-```
-
-#### `createItem(item)`
-
-Creates a new item.
-
-**Parameters:**
-- `item` (object): Item data
-
-**Returns:** Promise<Item>
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
-
-### Development Workflow
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Make your changes
-4. Add tests for your changes
-5. Run the test suite: `npm test`
-6. Commit your changes: `git commit -m 'Add amazing feature'`
-7. Push to the branch: `git push origin feature/amazing-feature`
-8. Open a pull request
-
-### Code Style
-
-- Use [Prettier](https://prettier.io/) for code formatting
-- Follow [ESLint](https://eslint.org/) rules
-- Write meaningful commit messages
-- Add JSDoc comments for public APIs
-
-## 📋 Changelog
-
-See [CHANGELOG.md](CHANGELOG.md) for a detailed history of changes.
-
-## 🔒 Security
-
-For security concerns, please email security@example.com instead of opening an issue.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- [Contributor Name](https://github.com/contributor) - Initial implementation
-- [Design System](https://designsystem.com) - UI components
-- [Open Source Library](https://library.com) - Core functionality
-
-## 📞 Support
-
-- 📧 Email: support@example.com
-- 💬 Discord: [Join our community](https://discord.gg/example)
-- 🐛 Issues: [GitHub Issues](https://github.com/username/project/issues)
-- 📖 Docs: [Documentation Site](https://docs.example.com)
-
----
-
-**Made with ❤️ by [Your Name](https://github.com/username)**
+## License
+GPLv3
