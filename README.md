@@ -18,7 +18,7 @@ This project includes a Jupyter Notebook for analyzing the Louisville roadway sa
 └── requirements.txt
 ```
 
-## How to Run This Project
+## How to run this project
 ### 1. Clone this repository
 
 ```bash
@@ -67,14 +67,14 @@ Don't forget! When you are done running the project, you should deactivate the P
 deactivate
 ```
 
-## Key Python Libraries Used
+## Python Libraries Used
 - **pandas**, for creating and handling dataframes
 - **geopandas**, for reading data sets in GeoJSON files
 - **geopy**, for converting shape lengths calculated by default in *degrees* to *miles*
 - **matplotlib**, for plotting visualizations, custom visualization labels, and to access to colormaps used in visualizations
 - **shapely**, for geopandas geometry management assistance
 
-## Key Analytical Questions
+## Analytical Questions
 - How much of Louisville's non-automotive transportation infrastructre falls within "high injury network" [as defined by Vision Zero Louisville](data/Vision_Zer0_Louisville-High_Injury_Network_Methodology_Report.pdf)? 
 - Which infrastructure locations, including bikeways, crosswalks, and bus stops, are at highest risk of experiencing a vehicular crash?
 - What safety measures are already in place? Can additional no- or low-cost measures (i.e. reducing speed limit) be implemented?
@@ -85,7 +85,7 @@ The analysis workflow includes:
 - Standardization of geographic data, such as translation of all distance units into miles
 - Exploratory Data Analysis (EDA) using Python (pandas, matplotlib, geopandas)
 
-## Key Findings & Insights
+## Findings & Insights
 - 
 
 ## AI Usage
