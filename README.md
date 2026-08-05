@@ -11,11 +11,24 @@ This project includes a Jupyter Notebook for analyzing the Louisville roadway sa
 ```
 .
 ├── data
-│   └── Ky_County_Polygons_WM.shp
+│   ├── Jefferson_County_KY_Bikeways.geojson
+│   ├── Jefferson_County_KY_Midblock_Crossings.geojson
+│   ├── Ky_County_Polygons
+│   │   ├── Ky_County_Polygons_WM.cpg
+│   │   ├── Ky_County_Polygons_WM.dbf
+│   │   ├── Ky_County_Polygons_WM.prj
+│   │   ├── Ky_County_Polygons_WM.shp
+│   │   ├── Ky_County_Polygons_WM.shp.xml
+│   │   └── Ky_County_Polygons_WM.shx
+│   ├── Louisville_Metro_Area_KY_Major_Roads.geojson
+│   ├── Louisville_Metro_Area_KY__TARC_Bus_Stops.geojson
+│   ├── Louisville_Metro_KY_-_High_Injury_Network.geojson
+│   └── Vision_Zer0_Louisville-High_Injury_Network_Methodology_Report.pdf
 ├── LICENSE
 ├── Louisville_Roadway_Risk_Analysis.ipynb
 ├── README.md
 └── requirements.txt
+
 ```
 
 ## How to run this project
@@ -79,11 +92,10 @@ deactivate
 - Which infrastructure locations, including bikeways, crosswalks, and bus stops, are at highest risk of experiencing a vehicular crash?
 - What safety measures are already in place? Can additional no- or low-cost measures (i.e. reducing speed limit) be implemented?
 
-## Methodology
-The analysis workflow includes:
-- Data retrieval of data from [Lousiville Open Data](https://data.louisvilleky.gov/)
-- Standardization of geographic data, such as translation of all distance units into miles
-- Exploratory Data Analysis (EDA) using Python (pandas, matplotlib, geopandas)
+## Other Notes & Methodology
+- All data files in the *data* directory were retrieved from from [Lousiville Open Data](https://data.louisvilleky.gov/).
+- Standardization of geographic data: Translation of all distance units into miles, and ensuring all data sets use the same coordinate reference system (CRS).
+- Exploratory data analysis (EDA) using Python (pandas, matplotlib, geopandas). 
 
 ## Findings & Insights
 - 
