@@ -2,7 +2,7 @@
 Roadway Risk for Pedestrians and Cyclists in Louisville, KY (2018 - 2022)
 
 ## Project Overview
-> A brief analysis of how the most dangerous roadways in Louisville intersect with bikeways and pedestrian-heavy infrastructure like crosswalks and bus stops. 
+> A brief analysis of how the most dangerous roadways in Louisville intersect with bikeways and crosswalks. 
 
 ## Prerequisites
 This project includes a Jupyter Notebook for analyzing the Louisville roadway safety data sets. Directions included here are for running the notebook in **Visual Studio Code** (available from https://code.visualstudio.com/download) or **VSCodium** (available from https://vscodium.com/). The notebook may also be opened in **Jupyter Notebook Interface** (available from https://docs.jupyter.org/en/latest/install.html), but this has not been tested.
@@ -28,6 +28,7 @@ This project includes a Jupyter Notebook for analyzing the Louisville roadway sa
 ├── Louisville_Roadway_Risk_Analysis.ipynb
 ├── README.md
 └── requirements.txt
+
 
 ```
 
@@ -86,10 +87,11 @@ deactivate
 - **geopy**, for converting shape lengths calculated by default in *degrees* to *miles*
 - **matplotlib**, for plotting visualizations, custom visualization labels, and to access to colormaps used in visualizations
 - **shapely**, for geopandas geometry management assistance
+- **sqlite3**, to aggregate and combine datasets dynamically
 
 ## Analytical Questions
 - How much of Louisville's non-automotive transportation infrastructre falls within "high injury network" [as defined by Vision Zero Louisville](data/Vision_Zer0_Louisville-High_Injury_Network_Methodology_Report.pdf)? 
-- Which infrastructure locations, including bikeways, crosswalks, and bus stops, are at highest risk of experiencing a vehicular crash?
+- Which infrastructure locations, including bikeways and crosswalks, are at highest risk of experiencing a vehicular crash?
 - What safety measures are already in place? Can additional no- or low-cost measures (i.e. reducing speed limit) be implemented?
 
 ## Other Notes & Methodology
@@ -99,6 +101,10 @@ deactivate
 
 ## Findings & Insights
 - 
+
+## Future Enhancements Possible
+- Efforts to generate usable primary keys for all datasets.
+- Create an interactive dashboard which could be used to generate information dialogs on mouseover.
 
 ## AI Usage
 The author of this project prefers not to rely on so-called AI. As such, no generative AI tools, chatbots, or other LLM technology has been used in building this project.
