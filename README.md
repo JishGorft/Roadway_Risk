@@ -101,6 +101,7 @@ deactivate
 - Standardization of geographic data: Translation of all distance units into miles, and ensuring all data sets use the same coordinate reference system (CRS).
 - Exploratory data analysis (EDA) using Python (pandas, matplotlib, geopandas). 
 - SQLite was used lightly in this project for some basic aggregation and calculation. An ERD for the SQLite database can be viewed [here](data/erd.png).
+- The original EDA for this project can be found in repository: [LouKY_roadway_safety_EDA](https://github.com/JishGorft/LouKY_roadway_safety_EDA)
 
 ## Findings & Insights
 - More granular analysis of downtown Louisville specifically is warranted. The most severe crashes seem to occur in downtown, and downtown contains several bikeways and many crosswalks.
